@@ -35,7 +35,7 @@ public class UsuarioDAO {
         rtdo = 0;
         try{
             con = Fachada.getConnection();
-            String sql = "INSERT INTO programa values (?,?,?)";
+            String sql = "INSERT INTO usuario values (?,?,?)";
             pstm = con.prepareStatement(sql);
             pstm.setString(1, us.getNombre());
             pstm.setString(2, us.getDireccion());
@@ -108,7 +108,7 @@ public class UsuarioDAO {
         rtdo = 0;
         try{
             con = Fachada.getConnection();
-            String sql = "DELETE FROM Usuario WHERE Nit = ? ";
+            String sql = "DELETE FROM usuario WHERE Nit = ? ";
             pstm = con.prepareStatement(sql);
             pstm.setString(1, Nit);
             rtdo = pstm.executeUpdate(); 
@@ -144,10 +144,10 @@ public class UsuarioDAO {
             con = Fachada.getConnection();
             String sql="";
             if(Nit.equalsIgnoreCase("0")){
-                sql = "SELECT * FROM programa ORDER BY codigo";            
+                sql = "SELECT * FROM usuario ORDER BY Nit";            
             }else{
-                sql = "SELECT * FROM programa where codigo = ? "
-                    + "ORDER BY codigo";      
+                sql = "SELECT * FROM usuario where Nit = ? "
+                    + "ORDER BY Nit";      
             }                        
             pstm = con.prepareStatement(sql);
             
