@@ -168,8 +168,8 @@ public class ProveedorDAO {
                 proveedor.setNombre(rs.getString("Nombre"));
                 proveedor.setDireccion(rs.getString("Direccion"));
                 proveedor.setNit(rs.getInt("Nit"));
-                proveedor.setNombreInsumo("Nombre insumo");
-                proveedor.setCantidadInsumo(0);
+                proveedor.setNombreInsumo(rs.getString("nombre_Insumo"));
+                proveedor.setCantidadInsumo(rs.getInt("cantidad_Insumo"));
                 listado.add(proveedor);
             }
         }
