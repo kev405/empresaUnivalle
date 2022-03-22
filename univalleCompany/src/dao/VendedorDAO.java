@@ -64,7 +64,7 @@ public class VendedorDAO {
      * @param p Objeto de la clase Programa a grabar
      * @return rtdo resultado de la operación modificar
      */
-    public int modificarPrograma(Vendedor vend){      
+    public int modificarVendedor(Vendedor vend){      
         Connection con = null;
         PreparedStatement pstm;
         pstm = null;
