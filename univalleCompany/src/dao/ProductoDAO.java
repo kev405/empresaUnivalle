@@ -141,7 +141,7 @@ public class ProductoDAO {
      * @param codigo codigo del programa a listar, 0 se listaran todos
      * @return ArrayList, lista de objetos Programa
      */
-    public ArrayList<Producto> listadoCliente(String id){      
+    public ArrayList<Producto> listadoProducto(String id){      
         Connection con = null;
         PreparedStatement pstm = null;
         ResultSet rs = null;
