@@ -78,9 +78,11 @@ public class ModeloChatServidor {
         
          try{
                 //obtener el texto de el campo de texto y enviarlo
+                
                 String msgout = "";
                 msgout = msg_text.getText().trim();
                 dout.writeUTF(msgout);
+                msg_area.setText(msg_area.getText().trim() + "\nServidor: " + msgout);
                 
             }catch(Exception i){
                 System.out.print("estoy en el boton servidor");

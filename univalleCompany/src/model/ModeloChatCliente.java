@@ -83,6 +83,7 @@ public class ModeloChatCliente {
           msgout = msg_text.getText().trim();
           dout.writeUTF(msgout);
           System.out.println("se Envio");
+          msg_area.setText(msg_area.getText().trim()+"\nCliente: " + msgout );
           
           
         }catch(Exception i){
