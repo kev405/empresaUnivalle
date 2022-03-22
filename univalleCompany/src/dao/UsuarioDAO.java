@@ -162,7 +162,7 @@ public class UsuarioDAO {
                 usuario = new Usuario();
                 usuario.setNombre(rs.getString("Nombre"));
                 usuario.setDireccion(rs.getString("Direccion"));
-                usuario.setId(rs.getInt("Nit"));
+                usuario.setId(rs.getInt("id"));
                 listado.add(usuario);
             }
         }
