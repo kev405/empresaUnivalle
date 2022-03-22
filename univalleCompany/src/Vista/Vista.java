@@ -4,10 +4,9 @@
  */
 package Vista;
 
-import javax.swing.JPanel;
-import Vista.panelChatServidor;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+
+
+
 
 
 
@@ -15,28 +14,16 @@ import java.awt.event.ActionListener;
  *
  * @author D4K4R
  */
-public class Vista extends javax.swing.JFrame implements ActionListener  {
+public class Vista extends javax.swing.JFrame   {
 
     
-    panelChatServidor miPanelChat = new panelChatServidor();
-    FrameChatCliente chatCliente = new FrameChatCliente();
+   
 
     
     public Vista() {
+        
         initComponents();
-        
-        
-        this.setLocationRelativeTo(null);
-        
-        
-        
-        
-        
-        
-        btnChat.addActionListener(this);
-        btnInicio.addActionListener(this);
-
-        
+   
     }
 
     /**
@@ -71,12 +58,21 @@ public class Vista extends javax.swing.JFrame implements ActionListener  {
         btnChat.setFocusable(false);
         btnChat.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnChat.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnChat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnChatActionPerformed(evt);
+            }
+        });
         jToolBar2.add(btnChat);
 
         getContentPane().add(jToolBar2, java.awt.BorderLayout.PAGE_START);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnChatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChatActionPerformed
+    
+    }//GEN-LAST:event_btnChatActionPerformed
 
      
         
@@ -90,22 +86,11 @@ public class Vista extends javax.swing.JFrame implements ActionListener  {
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnChat;
-    private javax.swing.JButton btnInicio;
+    public javax.swing.JButton btnChat;
+    public javax.swing.JButton btnInicio;
     private javax.swing.JToolBar jToolBar2;
     private javax.swing.JPanel panelPrincipal;
     // End of variables declaration//GEN-END:variables
 
-    @Override
-    public void actionPerformed(ActionEvent ae) {
-        Object evt = ae.getSource();
-        if (evt.equals(btnChat)){
-            
-            panelPrincipal.add(this.miPanelChat);
-            panelPrincipal.validate();
-            this.chatCliente.setVisible(true);
 
-        
-        }
-    }
 }
