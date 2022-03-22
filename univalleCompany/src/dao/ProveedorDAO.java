@@ -27,7 +27,7 @@ public class ProveedorDAO {
      * @param p Objeto de la clase Programa a grabar
      * @return rtdo resultado de la operación grbar
      */
-    public int grabarPrograma(Proveedor prov){      
+    public int grabarProveedor(Proveedor prov){      
         Connection con = null;
         PreparedStatement pstm;
         pstm = null;
@@ -65,7 +65,7 @@ public class ProveedorDAO {
      * @param p Objeto de la clase Programa a grabar
      * @return rtdo resultado de la operación modificar
      */
-    public int modificarPrograma(Proveedor prov){      
+    public int modificarProveedor(Proveedor prov){      
         Connection con = null;
         PreparedStatement pstm;
         pstm = null;
