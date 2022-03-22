@@ -4,6 +4,9 @@
  */
 package Vista;
 
+
+
+
 /**
  *
  * @author D4K4R
@@ -13,9 +16,15 @@ public class FrameChatCliente extends javax.swing.JFrame {
     /**
      * Creates new form FrameChatCliente
      */
+    
+  
+    
     public FrameChatCliente() {
+       
         initComponents();
+        
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -27,18 +36,26 @@ public class FrameChatCliente extends javax.swing.JFrame {
     private void initComponents() {
 
         panelPrincipal = new javax.swing.JPanel();
-        btnEnviarCliente = new javax.swing.JButton();
+        msg_send = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        CampoLecturaCliente = new javax.swing.JTextArea();
-        CampoEscrituraCliente = new javax.swing.JTextField();
+        msg_area = new javax.swing.JTextArea();
+        msg_text = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        btnEnviarCliente.setText("Enviar");
+        msg_send.setText("Enviar");
+        msg_send.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                msg_sendActionPerformed(evt);
+            }
+        });
 
-        CampoLecturaCliente.setColumns(20);
-        CampoLecturaCliente.setRows(5);
-        jScrollPane1.setViewportView(CampoLecturaCliente);
+        msg_area.setColumns(20);
+        msg_area.setRows(5);
+        jScrollPane1.setViewportView(msg_area);
+
+        jLabel1.setText("CLIENTE");
 
         javax.swing.GroupLayout panelPrincipalLayout = new javax.swing.GroupLayout(panelPrincipal);
         panelPrincipal.setLayout(panelPrincipalLayout);
@@ -49,20 +66,25 @@ public class FrameChatCliente extends javax.swing.JFrame {
                 .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
                     .addGroup(panelPrincipalLayout.createSequentialGroup()
-                        .addComponent(CampoEscrituraCliente)
+                        .addComponent(msg_text)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnEnviarCliente)))
+                        .addComponent(msg_send))
+                    .addGroup(panelPrincipalLayout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         panelPrincipalLayout.setVerticalGroup(
             panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPrincipalLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnEnviarCliente)
-                    .addComponent(CampoEscrituraCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(msg_send)
+                    .addComponent(msg_text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(14, 14, 14))
         );
 
@@ -80,15 +102,23 @@ public class FrameChatCliente extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void msg_sendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_msg_sendActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_msg_sendActionPerformed
+
     /**
      * @param args the command line arguments
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField CampoEscrituraCliente;
-    private javax.swing.JTextArea CampoLecturaCliente;
-    private javax.swing.JButton btnEnviarCliente;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
+    public static javax.swing.JTextArea msg_area;
+    public javax.swing.JButton msg_send;
+    public javax.swing.JTextField msg_text;
     private javax.swing.JPanel panelPrincipal;
     // End of variables declaration//GEN-END:variables
-}
+
+
+    }
+
