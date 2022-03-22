@@ -10,24 +10,24 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import model.Cliente;
+import model.Proveedor;
 import servicios.Fachada;
 
 /**
  *
- * @author usuario
+ * @author mavel
  */
-public class ClientesDao {
-     public ClientesDao() {
+public class ProveedorDAO {
+    
+      public ProveedorDAO() {
     }
     
-     
-     /**
+        /**
      * 
      * @param p Objeto de la clase Programa a grabar
      * @return rtdo resultado de la operación grbar
      */
-    public int grabarCliente(Cliente clie){      
+    public int grabarProveedor(Proveedor prov){      
         Connection con = null;
         PreparedStatement pstm;
         pstm = null;
@@ -35,18 +35,17 @@ public class ClientesDao {
         rtdo = 0;
         try{
             con = Fachada.getConnection();
-            String sql = "INSERT INTO cliente values (?,?,?,?,?,?)";
+            String sql = "INSERT INTO proveedor values (?,?,?,?,?)";
             pstm = con.prepareStatement(sql);
-            pstm.setString(1, clie.getNombre());
-            pstm.setString(2, clie.getDireccion());
-            pstm.setInt(3,clie.getId());
-            pstm.setInt( 4, clie.getEdad());
-            pstm.setInt(5, clie.getCantidadPedido());
-            pstm.setString(6, clie.getTipoPago());
+            pstm.setString(1, prov.getNombre());
+            pstm.setString(2, prov.getDireccion());
+            pstm.setInt(3,prov.getId());
+            pstm.setString(4, prov.getNombreInsumo());
+            pstm.setInt(5, prov.getCantidadInsumo());
             rtdo = pstm.executeUpdate();  
         }
         catch(SQLException ex){
-            JOptionPane.showMessageDialog(null,"idCliente : " + 
+            JOptionPane.showMessageDialog(null,"idProveedor : " + 
                         ex.getErrorCode() + "\nError :" + ex.getMessage());
         }
         finally{
@@ -54,19 +53,19 @@ public class ClientesDao {
                 if(pstm!=null) pstm.close();                
             }
             catch(SQLException ex){
-                JOptionPane.showMessageDialog(null,"idCliente : " + 
+                JOptionPane.showMessageDialog(null,"idProveedor : " + 
                         ex.getErrorCode() + "\nError :" + ex.getMessage());
             }
         }
         return rtdo;
     }
     
-    /**
+     /**
      * 
      * @param p Objeto de la clase Programa a grabar
      * @return rtdo resultado de la operación modificar
      */
-    public int modificarCliente(Cliente clie){      
+    public int modificarProveedor(Proveedor prov){      
         Connection con = null;
         PreparedStatement pstm;
         pstm = null;
@@ -74,21 +73,20 @@ public class ClientesDao {
         rtdo = 0;
         try{
             con = Fachada.getConnection();
-            String sql = "UPDATE cliente " +
-                         "SET nombre = ?, direccion = ?, edad = ? "
-                    + " cantidadPedido = ?, tipoPago = ? "
-                    +    "WHERE idCliente=?";
+            String sql = "UPDATE proveedor " +
+                         "SET nombre = ?, direccion = ?,"
+                    + " nombre_Insumo = ?, cantidad_Insumo = ? "
+                    +    "WHERE idProveedor=?";
             pstm = con.prepareStatement(sql);            
-            pstm.setString(1, clie.getNombre());
-            pstm.setString(2, clie.getDireccion());
-            pstm.setInt(3,clie.getId());
-            pstm.setInt( 4, clie.getEdad());
-            pstm.setInt(5, clie.getCantidadPedido());
-            pstm.setString(6, clie.getTipoPago());
+            pstm.setString(1, prov.getNombre());
+            pstm.setString(2, prov.getDireccion());
+            pstm.setInt(3,prov.getId());
+            pstm.setString(4, prov.getNombreInsumo());
+            pstm.setInt(5, prov.getCantidadInsumo());
             rtdo = pstm.executeUpdate();  
         }
         catch(SQLException ex){
-            JOptionPane.showMessageDialog(null,"idCliente : " + 
+            JOptionPane.showMessageDialog(null,"idProveedor : " + 
                         ex.getErrorCode() + "\nError :" + ex.getMessage());
         }
         finally{
@@ -96,7 +94,7 @@ public class ClientesDao {
                 if(pstm!=null) pstm.close();                
             }
             catch(SQLException ex){
-                JOptionPane.showMessageDialog(null,"idCliente : " + 
+                JOptionPane.showMessageDialog(null,"idProveedor : " + 
                         ex.getErrorCode() + "\nError :" + ex.getMessage());
             }
         }
@@ -108,21 +106,21 @@ public class ClientesDao {
      * @param codigo código del programa a borrar
      * @return rtdo resultado de la operación borrar
      */
-    public int borrarCliente(String id){      
+    public int borrarProveedor(String id){      
         Connection con = null;
         PreparedStatement pstm = null;
         int rtdo;
         rtdo = 0;
         try{
             con = Fachada.getConnection();
-            String sql = "DELETE FROM cliente WHERE idCliente = ? ";
+            String sql = "DELETE FROM proveedor WHERE idProveedor = ? ";
             pstm = con.prepareStatement(sql);
             pstm.setString(1, id);
             rtdo = pstm.executeUpdate(); 
             return rtdo;
         }
         catch(SQLException ex){
-            JOptionPane.showMessageDialog(null,"idCliente : " + 
+            JOptionPane.showMessageDialog(null,"idProveedor : " + 
                         ex.getErrorCode() + "\nError :" + ex.getMessage());
         } 
         finally{
@@ -130,30 +128,31 @@ public class ClientesDao {
                 if(pstm!=null) pstm.close();                
             }
             catch(SQLException ex){
-                JOptionPane.showMessageDialog(null,"idCliente : " + 
+                JOptionPane.showMessageDialog(null,"idProveedor : " + 
                         ex.getErrorCode() + "\nError :" + ex.getMessage());
             }
         }
         return rtdo;
     }
-     /**
+    
+    /**
      * 
      * @param codigo codigo del programa a listar, 0 se listaran todos
      * @return ArrayList, lista de objetos Programa
      */
-    public ArrayList<Cliente> listadoCliente(String id){      
+    public ArrayList<Proveedor> listadoProveedor(String id){      
         Connection con = null;
         PreparedStatement pstm = null;
         ResultSet rs = null;
-        ArrayList<Cliente> listado = new ArrayList<>();
+        ArrayList<Proveedor> listado = new ArrayList<>();
         try{
             con = Fachada.getConnection();
             String sql="";
             if(id.equalsIgnoreCase("0")){
-                sql = "SELECT * FROM cliente ORDER BY idCliente";            
+                sql = "SELECT * FROM proveedor ORDER BY idProveedor";            
             }else{
-                sql = "SELECT * FROM cliente where idCliente = ? "
-                    + "ORDER BY idCliente";      
+                sql = "SELECT * FROM proveedor where idProveedor = ? "
+                    + "ORDER BY idProveedor";      
             }                        
             pstm = con.prepareStatement(sql);
             
@@ -163,20 +162,19 @@ public class ClientesDao {
             
             rs = pstm.executeQuery();
                         
-            Cliente cliente = null;
+            Proveedor proveedor = null;
             while(rs.next()){
-                cliente = new Cliente();
-                cliente.setNombre(rs.getString("Nombre"));
-                cliente.setDireccion(rs.getString("Direccion"));
-                cliente.setId(rs.getInt("idCliente"));
-                cliente.setEdad(rs.getInt("Edad")); ;
-                cliente.setCantidadPedido(rs.getInt("cantidadPedido")); 
-                cliente.setTipoPago(rs.getString("tipoPago"));
-                listado.add(cliente);
+                proveedor = new Proveedor();
+                proveedor.setNombre(rs.getString("Nombre"));
+                proveedor.setDireccion(rs.getString("Direccion"));
+                proveedor.setId(rs.getInt("idProveedor"));
+                proveedor.setNombreInsumo(rs.getString("nombre_Insumo"));
+                proveedor.setCantidadInsumo(rs.getInt("cantidad_Insumo"));
+                listado.add(proveedor);
             }
         }
         catch(SQLException ex){
-            JOptionPane.showMessageDialog(null,"idCliente : " + 
+            JOptionPane.showMessageDialog(null,"idProveedor : " + 
                         ex.getErrorCode() + "\nError :" + ex.getMessage());
         }
         finally{
@@ -185,7 +183,7 @@ public class ClientesDao {
                 if(pstm!=null) pstm.close();                
             }
             catch(SQLException ex){
-                JOptionPane.showMessageDialog(null,"idCliente : " + 
+                JOptionPane.showMessageDialog(null,"idProveedor : " + 
                         ex.getErrorCode() + "\nError :" + ex.getMessage());
             }
         }
@@ -193,4 +191,5 @@ public class ClientesDao {
     }
     
     
+      
 }

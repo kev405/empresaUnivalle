@@ -12,12 +12,16 @@ public class Usuario {
     
     protected String nombre;
     protected String direccion;
-    protected int nit;
+    protected int id;
 
-    public Usuario(String nombre, String direccion, int nit) {
+    public Usuario(String nombre, String direccion, int id) {
         this.nombre = nombre;
         this.direccion = direccion;
-        this.nit = nit;
+        this.id = id;
+    }
+
+    public Usuario() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public String getNombre() {
@@ -36,13 +40,14 @@ public class Usuario {
         this.direccion = direccion;
     }
 
-    public int getNit() {
-        return nit;
+    public int getId() {
+        return id;
     }
 
-    public void setNit(int nit) {
-        this.nit = nit;
+    public void setId(int id) {
+        this.id = id;
     }
+
     
     
     

@@ -13,10 +13,16 @@ public class Proveedor extends Usuario {
     private String nombreInsumo;
     private int cantidadInsumo;
 
-    public Proveedor(String nombreInsumo, int cantidadInsumo, String nombre, String direccion, int nit) {
-        super(nombre, direccion, nit);
+    public Proveedor(String nombreInsumo, int cantidadInsumo, String nombre, String direccion, int id) {
+        super(nombre, direccion, id);
         this.nombreInsumo = nombreInsumo;
         this.cantidadInsumo = cantidadInsumo;
+    }
+
+   
+
+    public Proveedor() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public String getNombreInsumo() {
