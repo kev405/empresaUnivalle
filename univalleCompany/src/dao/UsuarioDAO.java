@@ -101,7 +101,7 @@ public class UsuarioDAO {
      * @param codigo código del programa a borrar
      * @return rtdo resultado de la operación borrar
      */
-    public int borrarPrograma(String Nit){      
+    public int borrarUsuario(String Nit){      
         Connection con = null;
         PreparedStatement pstm = null;
         int rtdo;
@@ -135,7 +135,7 @@ public class UsuarioDAO {
      * @param codigo codigo del programa a listar, 0 se listaran todos
      * @return ArrayList, lista de objetos Programa
      */
-    public ArrayList<Usuario> listadoProgramas(String Nit){      
+    public ArrayList<Usuario> listadoUsuario(String Nit){      
         Connection con = null;
         PreparedStatement pstm = null;
         ResultSet rs = null;
