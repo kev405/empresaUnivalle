@@ -51,7 +51,7 @@ public class UsuarioDAO {
                 if(pstm!=null) pstm.close();                
             }
             catch(SQLException ex){
-                JOptionPane.showMessageDialog(null,"Nit : " + 
+                JOptionPane.showMessageDialog(null,"id : " + 
                         ex.getErrorCode() + "\nError :" + ex.getMessage());
             }
         }
@@ -89,7 +89,7 @@ public class UsuarioDAO {
                 if(pstm!=null) pstm.close();                
             }
             catch(SQLException ex){
-                JOptionPane.showMessageDialog(null,"Nit : " + 
+                JOptionPane.showMessageDialog(null,"id : " + 
                         ex.getErrorCode() + "\nError :" + ex.getMessage());
             }
         }
@@ -101,7 +101,7 @@ public class UsuarioDAO {
      * @param codigo código del programa a borrar
      * @return rtdo resultado de la operación borrar
      */
-    public int borrarUsuario(String Nit){      
+    public int borrarUsuario(String id){      
         Connection con = null;
         PreparedStatement pstm = null;
         int rtdo;
@@ -110,7 +110,7 @@ public class UsuarioDAO {
             con = Fachada.getConnection();
             String sql = "DELETE FROM usuario WHERE id = ? ";
             pstm = con.prepareStatement(sql);
-            pstm.setString(1, Nit);
+            pstm.setString(1, id);
             rtdo = pstm.executeUpdate(); 
             return rtdo;
         }
@@ -123,7 +123,7 @@ public class UsuarioDAO {
                 if(pstm!=null) pstm.close();                
             }
             catch(SQLException ex){
-                JOptionPane.showMessageDialog(null,"Nit : " + 
+                JOptionPane.showMessageDialog(null,"id : " + 
                         ex.getErrorCode() + "\nError :" + ex.getMessage());
             }
         }
@@ -135,7 +135,7 @@ public class UsuarioDAO {
      * @param codigo codigo del programa a listar, 0 se listaran todos
      * @return ArrayList, lista de objetos Programa
      */
-    public ArrayList<Usuario> listadoUsuario(String Nit){      
+    public ArrayList<Usuario> listadoUsuario(String id){      
         Connection con = null;
         PreparedStatement pstm = null;
         ResultSet rs = null;
@@ -143,16 +143,16 @@ public class UsuarioDAO {
         try{
             con = Fachada.getConnection();
             String sql="";
-            if(Nit.equalsIgnoreCase("0")){
+            if(id.equalsIgnoreCase("0")){
                 sql = "SELECT * FROM usuario ORDER BY id";            
             }else{
                 sql = "SELECT * FROM usuario where id = ? "
-                    + "ORDER BY Nit";      
+                    + "ORDER BY id";      
             }                        
             pstm = con.prepareStatement(sql);
             
-            if(Nit != "0"){
-                pstm.setString(1, Nit);
+            if(id != "0"){
+                pstm.setString(1, id);
             }
             
             rs = pstm.executeQuery();
