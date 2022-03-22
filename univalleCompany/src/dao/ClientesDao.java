@@ -27,7 +27,7 @@ public class ClientesDao {
      * @param p Objeto de la clase Programa a grabar
      * @return rtdo resultado de la operación grbar
      */
-    public int grabarPrograma(Cliente clie){      
+    public int grabarCliente(Cliente clie){      
         Connection con = null;
         PreparedStatement pstm;
         pstm = null;
@@ -66,7 +66,7 @@ public class ClientesDao {
      * @param p Objeto de la clase Programa a grabar
      * @return rtdo resultado de la operación modificar
      */
-    public int modificarPrograma(Cliente clie){      
+    public int modificarCliente(Cliente clie){      
         Connection con = null;
         PreparedStatement pstm;
         pstm = null;
