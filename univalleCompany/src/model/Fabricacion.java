@@ -9,23 +9,26 @@ package model;
  * @author mavel
  */
 public class Fabricacion {
-    
-    private String nombreInsumos;
+        private  int idProducto_Fab;
+    private String materiaPrima;
     private String nombreProductos;
-    private  int idInsumos;
 
-    public Fabricacion(String nombreInsumos, String nombreProductos, int idInsumos) {
-        this.nombreInsumos = nombreInsumos;
+    public Fabricacion(String nombreInsumos, String materiaPrima, int idProducto_Fab) {
+        this.materiaPrima = nombreInsumos;
         this.nombreProductos = nombreProductos;
-        this.idInsumos = idInsumos;
+        this.idProducto_Fab = idProducto_Fab;
     }
 
-    public String getNombreInsumos() {
-        return nombreInsumos;
+    public Fabricacion() {
+    }
+    
+
+    public String getMateriaPrima() {
+        return materiaPrima;
     }
 
-    public void setNombreInsumos(String nombreInsumos) {
-        this.nombreInsumos = nombreInsumos;
+    public void setMateriaPrima(String materiaPrima) {
+        this.materiaPrima = materiaPrima;
     }
 
     public String getNombreProductos() {
@@ -36,12 +39,12 @@ public class Fabricacion {
         this.nombreProductos = nombreProductos;
     }
 
-    public int getIdInsumos() {
-        return idInsumos;
+    public int getIdProducto_Fab() {
+        return idProducto_Fab;
     }
 
-    public void setIdInsumos(int idInsumos) {
-        this.idInsumos = idInsumos;
+    public void setIdProducto_Fab(int idProducto_Fab) {
+        this.idProducto_Fab = idProducto_Fab;
     }
     
     
