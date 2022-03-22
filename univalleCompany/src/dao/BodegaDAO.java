@@ -11,7 +11,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import model.Bodega;
-import model.Producto;
 import servicios.Fachada;
 
 /**
