@@ -39,13 +39,13 @@ public class ProveedorDAO {
             pstm = con.prepareStatement(sql);
             pstm.setString(1, prov.getNombre());
             pstm.setString(2, prov.getDireccion());
-            pstm.setInt(3,prov.getNit());
+            pstm.setInt(3,prov.getId());
             pstm.setString(4, prov.getNombreInsumo());
             pstm.setInt(5, prov.getCantidadInsumo());
             rtdo = pstm.executeUpdate();  
         }
         catch(SQLException ex){
-            JOptionPane.showMessageDialog(null,"Nit : " + 
+            JOptionPane.showMessageDialog(null,"idProveedor : " + 
                         ex.getErrorCode() + "\nError :" + ex.getMessage());
         }
         finally{
@@ -53,7 +53,7 @@ public class ProveedorDAO {
                 if(pstm!=null) pstm.close();                
             }
             catch(SQLException ex){
-                JOptionPane.showMessageDialog(null,"Nit : " + 
+                JOptionPane.showMessageDialog(null,"idProveedor : " + 
                         ex.getErrorCode() + "\nError :" + ex.getMessage());
             }
         }
@@ -76,17 +76,17 @@ public class ProveedorDAO {
             String sql = "UPDATE proveedor " +
                          "SET nombre = ?, direccion = ?,"
                     + " nombre_Insumo = ?, cantidad_Insumo = ? "
-                    +    "WHERE Nit=?";
+                    +    "WHERE idProveedor=?";
             pstm = con.prepareStatement(sql);            
             pstm.setString(1, prov.getNombre());
             pstm.setString(2, prov.getDireccion());
-            pstm.setInt(3,prov.getNit());
+            pstm.setInt(3,prov.getId());
             pstm.setString(4, prov.getNombreInsumo());
             pstm.setInt(5, prov.getCantidadInsumo());
             rtdo = pstm.executeUpdate();  
         }
         catch(SQLException ex){
-            JOptionPane.showMessageDialog(null,"Nit : " + 
+            JOptionPane.showMessageDialog(null,"idProveedor : " + 
                         ex.getErrorCode() + "\nError :" + ex.getMessage());
         }
         finally{
@@ -94,7 +94,7 @@ public class ProveedorDAO {
                 if(pstm!=null) pstm.close();                
             }
             catch(SQLException ex){
-                JOptionPane.showMessageDialog(null,"Nit : " + 
+                JOptionPane.showMessageDialog(null,"idProveedor : " + 
                         ex.getErrorCode() + "\nError :" + ex.getMessage());
             }
         }
@@ -106,21 +106,21 @@ public class ProveedorDAO {
      * @param codigo código del programa a borrar
      * @return rtdo resultado de la operación borrar
      */
-    public int borrarProveedor(String Nit){      
+    public int borrarProveedor(String id){      
         Connection con = null;
         PreparedStatement pstm = null;
         int rtdo;
         rtdo = 0;
         try{
             con = Fachada.getConnection();
-            String sql = "DELETE FROM proveedor WHERE Nit = ? ";
+            String sql = "DELETE FROM proveedor WHERE idProveedor = ? ";
             pstm = con.prepareStatement(sql);
-            pstm.setString(1, Nit);
+            pstm.setString(1, id);
             rtdo = pstm.executeUpdate(); 
             return rtdo;
         }
         catch(SQLException ex){
-            JOptionPane.showMessageDialog(null,"Nit : " + 
+            JOptionPane.showMessageDialog(null,"idProveedor : " + 
                         ex.getErrorCode() + "\nError :" + ex.getMessage());
         } 
         finally{
@@ -128,7 +128,7 @@ public class ProveedorDAO {
                 if(pstm!=null) pstm.close();                
             }
             catch(SQLException ex){
-                JOptionPane.showMessageDialog(null,"Nit : " + 
+                JOptionPane.showMessageDialog(null,"idProveedor : " + 
                         ex.getErrorCode() + "\nError :" + ex.getMessage());
             }
         }
@@ -140,7 +140,7 @@ public class ProveedorDAO {
      * @param codigo codigo del programa a listar, 0 se listaran todos
      * @return ArrayList, lista de objetos Programa
      */
-    public ArrayList<Proveedor> listadoProveedor(String Nit){      
+    public ArrayList<Proveedor> listadoProveedor(String id){      
         Connection con = null;
         PreparedStatement pstm = null;
         ResultSet rs = null;
@@ -148,16 +148,16 @@ public class ProveedorDAO {
         try{
             con = Fachada.getConnection();
             String sql="";
-            if(Nit.equalsIgnoreCase("0")){
-                sql = "SELECT * FROM proveedor ORDER BY Nit";            
+            if(id.equalsIgnoreCase("0")){
+                sql = "SELECT * FROM proveedor ORDER BY idProveedor";            
             }else{
-                sql = "SELECT * FROM proveedor where Nit = ? "
-                    + "ORDER BY Nit";      
+                sql = "SELECT * FROM proveedor where idProveedor = ? "
+                    + "ORDER BY idProveedor";      
             }                        
             pstm = con.prepareStatement(sql);
             
-            if(Nit != "0"){
-                pstm.setString(1, Nit);
+            if(id != "0"){
+                pstm.setString(1, id);
             }
             
             rs = pstm.executeQuery();
@@ -167,14 +167,14 @@ public class ProveedorDAO {
                 proveedor = new Proveedor();
                 proveedor.setNombre(rs.getString("Nombre"));
                 proveedor.setDireccion(rs.getString("Direccion"));
-                proveedor.setNit(rs.getInt("Nit"));
+                proveedor.setId(rs.getInt("idProveedor"));
                 proveedor.setNombreInsumo(rs.getString("nombre_Insumo"));
                 proveedor.setCantidadInsumo(rs.getInt("cantidad_Insumo"));
                 listado.add(proveedor);
             }
         }
         catch(SQLException ex){
-            JOptionPane.showMessageDialog(null,"Nit : " + 
+            JOptionPane.showMessageDialog(null,"idProveedor : " + 
                         ex.getErrorCode() + "\nError :" + ex.getMessage());
         }
         finally{
@@ -183,7 +183,7 @@ public class ProveedorDAO {
                 if(pstm!=null) pstm.close();                
             }
             catch(SQLException ex){
-                JOptionPane.showMessageDialog(null,"Nit : " + 
+                JOptionPane.showMessageDialog(null,"idProveedor : " + 
                         ex.getErrorCode() + "\nError :" + ex.getMessage());
             }
         }
