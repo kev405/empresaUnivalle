@@ -39,14 +39,14 @@ public class ClientesDao {
             pstm = con.prepareStatement(sql);
             pstm.setString(1, clie.getNombre());
             pstm.setString(2, clie.getDireccion());
-            pstm.setInt(3,clie.getNit());
+            pstm.setInt(3,clie.getId());
             pstm.setInt( 4, clie.getEdad());
             pstm.setInt(5, clie.getCantidadPedido());
             pstm.setString(6, clie.getTipoPago());
             rtdo = pstm.executeUpdate();  
         }
         catch(SQLException ex){
-            JOptionPane.showMessageDialog(null,"Nit : " + 
+            JOptionPane.showMessageDialog(null,"idCliente : " + 
                         ex.getErrorCode() + "\nError :" + ex.getMessage());
         }
         finally{
@@ -54,7 +54,7 @@ public class ClientesDao {
                 if(pstm!=null) pstm.close();                
             }
             catch(SQLException ex){
-                JOptionPane.showMessageDialog(null,"Nit : " + 
+                JOptionPane.showMessageDialog(null,"idCliente : " + 
                         ex.getErrorCode() + "\nError :" + ex.getMessage());
             }
         }
@@ -77,18 +77,18 @@ public class ClientesDao {
             String sql = "UPDATE cliente " +
                          "SET nombre = ?, direccion = ?, edad = ? "
                     + " cantidadPedido = ?, tipoPago = ? "
-                    +    "WHERE Nit=?";
+                    +    "WHERE idCliente=?";
             pstm = con.prepareStatement(sql);            
             pstm.setString(1, clie.getNombre());
             pstm.setString(2, clie.getDireccion());
-            pstm.setInt(3,clie.getNit());
+            pstm.setInt(3,clie.getId());
             pstm.setInt( 4, clie.getEdad());
             pstm.setInt(5, clie.getCantidadPedido());
             pstm.setString(6, clie.getTipoPago());
             rtdo = pstm.executeUpdate();  
         }
         catch(SQLException ex){
-            JOptionPane.showMessageDialog(null,"Nit : " + 
+            JOptionPane.showMessageDialog(null,"idCliente : " + 
                         ex.getErrorCode() + "\nError :" + ex.getMessage());
         }
         finally{
@@ -96,7 +96,7 @@ public class ClientesDao {
                 if(pstm!=null) pstm.close();                
             }
             catch(SQLException ex){
-                JOptionPane.showMessageDialog(null,"Nit : " + 
+                JOptionPane.showMessageDialog(null,"idCliente : " + 
                         ex.getErrorCode() + "\nError :" + ex.getMessage());
             }
         }
@@ -108,21 +108,21 @@ public class ClientesDao {
      * @param codigo código del programa a borrar
      * @return rtdo resultado de la operación borrar
      */
-    public int borrarCliente(String Nit){      
+    public int borrarCliente(String id){      
         Connection con = null;
         PreparedStatement pstm = null;
         int rtdo;
         rtdo = 0;
         try{
             con = Fachada.getConnection();
-            String sql = "DELETE FROM cliente WHERE Nit = ? ";
+            String sql = "DELETE FROM cliente WHERE idCliente = ? ";
             pstm = con.prepareStatement(sql);
-            pstm.setString(1, Nit);
+            pstm.setString(1, id);
             rtdo = pstm.executeUpdate(); 
             return rtdo;
         }
         catch(SQLException ex){
-            JOptionPane.showMessageDialog(null,"Nit : " + 
+            JOptionPane.showMessageDialog(null,"idCliente : " + 
                         ex.getErrorCode() + "\nError :" + ex.getMessage());
         } 
         finally{
@@ -130,7 +130,7 @@ public class ClientesDao {
                 if(pstm!=null) pstm.close();                
             }
             catch(SQLException ex){
-                JOptionPane.showMessageDialog(null,"Nit : " + 
+                JOptionPane.showMessageDialog(null,"idCliente : " + 
                         ex.getErrorCode() + "\nError :" + ex.getMessage());
             }
         }
@@ -141,7 +141,7 @@ public class ClientesDao {
      * @param codigo codigo del programa a listar, 0 se listaran todos
      * @return ArrayList, lista de objetos Programa
      */
-    public ArrayList<Cliente> listadoCliente(String Nit){      
+    public ArrayList<Cliente> listadoCliente(String id){      
         Connection con = null;
         PreparedStatement pstm = null;
         ResultSet rs = null;
@@ -149,16 +149,16 @@ public class ClientesDao {
         try{
             con = Fachada.getConnection();
             String sql="";
-            if(Nit.equalsIgnoreCase("0")){
-                sql = "SELECT * FROM cliente ORDER BY Nit";            
+            if(id.equalsIgnoreCase("0")){
+                sql = "SELECT * FROM cliente ORDER BY idCliente";            
             }else{
-                sql = "SELECT * FROM cliente where Nit = ? "
-                    + "ORDER BY Nit";      
+                sql = "SELECT * FROM cliente where idCliente = ? "
+                    + "ORDER BY idCliente";      
             }                        
             pstm = con.prepareStatement(sql);
             
-            if(Nit != "0"){
-                pstm.setString(1, Nit);
+            if(id != "0"){
+                pstm.setString(1, id);
             }
             
             rs = pstm.executeQuery();
@@ -168,7 +168,7 @@ public class ClientesDao {
                 cliente = new Cliente();
                 cliente.setNombre(rs.getString("Nombre"));
                 cliente.setDireccion(rs.getString("Direccion"));
-                cliente.setNit(rs.getInt("Nit"));
+                cliente.setId(rs.getInt("idCliente"));
                 cliente.setEdad(rs.getInt("Edad")); ;
                 cliente.setCantidadPedido(rs.getInt("cantidadPedido")); 
                 cliente.setTipoPago(rs.getString("tipoPago"));
@@ -176,7 +176,7 @@ public class ClientesDao {
             }
         }
         catch(SQLException ex){
-            JOptionPane.showMessageDialog(null,"Nit : " + 
+            JOptionPane.showMessageDialog(null,"idCliente : " + 
                         ex.getErrorCode() + "\nError :" + ex.getMessage());
         }
         finally{
@@ -185,7 +185,7 @@ public class ClientesDao {
                 if(pstm!=null) pstm.close();                
             }
             catch(SQLException ex){
-                JOptionPane.showMessageDialog(null,"Nit : " + 
+                JOptionPane.showMessageDialog(null,"idCliente : " + 
                         ex.getErrorCode() + "\nError :" + ex.getMessage());
             }
         }
