@@ -140,7 +140,7 @@ public class VendedorDAO {
      * @param codigo codigo del programa a listar, 0 se listaran todos
      * @return ArrayList, lista de objetos Programa
      */
-    public ArrayList<Vendedor> listadoProgramas(String Nit){      
+    public ArrayList<Vendedor> listadoVendedor(String Nit){      
         Connection con = null;
         PreparedStatement pstm = null;
         ResultSet rs = null;
