@@ -27,7 +27,7 @@ public class UsuarioDAO {
      * @param p Objeto de la clase Programa a grabar
      * @return rtdo resultado de la operación grbar
      */
-    public int grabarPrograma(Usuario us){      
+    public int grabarUsuario(Usuario us){      
         Connection con = null;
         PreparedStatement pstm;
         pstm = null;
@@ -63,7 +63,7 @@ public class UsuarioDAO {
      * @param p Objeto de la clase Programa a grabar
      * @return rtdo resultado de la operación modificar
      */
-    public int modificarPrograma(Usuario us){      
+    public int modificarUsuario(Usuario us){      
         Connection con = null;
         PreparedStatement pstm;
         pstm = null;
