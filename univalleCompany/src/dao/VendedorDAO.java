@@ -21,7 +21,7 @@ public class VendedorDAO {
      public VendedorDAO() {
     }
      
-      /**
+     /**
      * 
      * @param p Objeto de la clase Programa a grabar
      * @return rtdo resultado de la operación grbar
@@ -106,7 +106,7 @@ public class VendedorDAO {
      * @param codigo código del programa a borrar
      * @return rtdo resultado de la operación borrar
      */
-    public int borrarPrograma(String Nit){      
+    public int borrarVendedor(String Nit){      
         Connection con = null;
         PreparedStatement pstm = null;
         int rtdo;
