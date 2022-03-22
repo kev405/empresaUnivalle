@@ -10,15 +10,30 @@ package model;
  */
 public class Bodega {
     
+    private int idProducto_Bod;
     private String nombreProdc;
     private double precio;
     private int cantidadProduc;
 
-    public Bodega(String nombreProdc, double precio, int cantidadProduc) {
+    public Bodega() {
+    }
+
+    public Bodega(int idProducto_Bod, String nombreProdc, double precio, int cantidadProduc) {
+        this.idProducto_Bod = idProducto_Bod;
         this.nombreProdc = nombreProdc;
         this.precio = precio;
         this.cantidadProduc = cantidadProduc;
     }
+
+    public int getIdProducto_Bod() {
+        return idProducto_Bod;
+    }
+
+    public void setIdProducto_Bod(int idProducto_Bod) {
+        this.idProducto_Bod = idProducto_Bod;
+    }
+
+ 
 
     public String getNombreProdc() {
         return nombreProdc;
