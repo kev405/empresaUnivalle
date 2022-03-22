@@ -6,7 +6,7 @@ package model;
 
 /**
  *
- * @author usuario
+ * @author mavel
  */
 public class Cliente extends Usuario{
     
@@ -14,18 +14,14 @@ public class Cliente extends Usuario{
     private int cantidadPedido;
     private String tipoPago;
 
-    public Cliente(int edad, int cantidadPedido, String tipoPago, String nombre, String direccion, int nit) {
-        super(nombre, direccion, nit);
+    public Cliente(int edad, int cantidadPedido, String tipoPago, String nombre, String direccion, int id) {
+        super(nombre, direccion, id);
         this.edad = edad;
         this.cantidadPedido = cantidadPedido;
         this.tipoPago = tipoPago;
     }
 
-    public Cliente(int edad, int cantidadPedido, String tipoPago) {
-        this.edad = edad;
-        this.cantidadPedido = cantidadPedido;
-        this.tipoPago = tipoPago;
-    }
+  
 
     public Cliente() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
