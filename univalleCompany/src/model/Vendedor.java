@@ -13,11 +13,16 @@ public class Vendedor extends Usuario {
     private int cantidadProductos;
     private int numeroVenta;
 
-   
-    public Vendedor(int cantidadProductos, int numeroVenta, String nombre, String direccion, int nit) {
-        super(nombre, direccion, nit);
+    public Vendedor(int cantidadProductos, int numeroVenta, String nombre, String direccion, int id) {
+        super(nombre, direccion, id);
         this.cantidadProductos = cantidadProductos;
         this.numeroVenta = numeroVenta;
+    }
+
+   
+
+    public Vendedor() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public int getCantidadProductos() {
