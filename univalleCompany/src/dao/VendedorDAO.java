@@ -168,8 +168,8 @@ public class VendedorDAO {
                 vendedor.setNombre(rs.getString("Nombre"));
                 vendedor.setDireccion(rs.getString("Direccion"));
                 vendedor.setNit(rs.getInt("Nit"));
-                vendedor.setCantidadProductos(0);
-                vendedor.setNumeroVenta(0);
+                vendedor.setCantidadProductos(rs.getInt("cantidad_Productos"));
+                vendedor.setNumeroVenta(rs.getInt("numero_Venta"));
                 listado.add(vendedor);
             }
         }
