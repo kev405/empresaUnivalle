@@ -59,6 +59,12 @@ public class FrameChatServidor extends javax.swing.JFrame  {
         msg_area.setRows(5);
         jScrollPane1.setViewportView(msg_area);
 
+        msg_text.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                msg_textActionPerformed(evt);
+            }
+        });
+
         msg_send.setText("Enviar");
         msg_send.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,7 +84,7 @@ public class FrameChatServidor extends javax.swing.JFrame  {
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(PanelPrincipalLayout.createSequentialGroup()
-                        .addComponent(msg_text, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(msg_text, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(msg_send)))
                 .addContainerGap(19, Short.MAX_VALUE))
@@ -114,6 +120,10 @@ public class FrameChatServidor extends javax.swing.JFrame  {
     private void msg_sendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_msg_sendActionPerformed
         
     }//GEN-LAST:event_msg_sendActionPerformed
+
+    private void msg_textActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_msg_textActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_msg_textActionPerformed
 
     /**
      * @param args the command line arguments
