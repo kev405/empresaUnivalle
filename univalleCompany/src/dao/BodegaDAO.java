@@ -38,14 +38,14 @@ public class BodegaDAO {
             con = Fachada.getConnection();
             String sql = "INSERT INTO bodega values (?,?,?,?)";
             pstm = con.prepareStatement(sql);
-            pstm.setInt(1, bod.getIdProducto_Bod());
-            pstm.setString(2, bod.getNombreProdc());
-            pstm.setDouble(3,bod.getPrecio());
-            pstm.setInt(4, bod.getCantidadProduc());
+            pstm.setInt(1, bod.getIdproducto_bod());
+            pstm.setString(2, bod.getNombreproducto_bod());
+            pstm.setDouble(3,bod.getCantidad());
+            pstm.setInt(4, bod.getId());
             rtdo = pstm.executeUpdate();  
         }
         catch(SQLException ex){
-            JOptionPane.showMessageDialog(null,"idProducto_Bod : " + 
+            JOptionPane.showMessageDialog(null,"id : " + 
                         ex.getErrorCode() + "\nError :" + ex.getMessage());
         }
         finally{
@@ -53,7 +53,7 @@ public class BodegaDAO {
                 if(pstm!=null) pstm.close();                
             }
             catch(SQLException ex){
-                JOptionPane.showMessageDialog(null,"idProducto_Bod : " + 
+                JOptionPane.showMessageDialog(null,"id : " + 
                         ex.getErrorCode() + "\nError :" + ex.getMessage());
             }
         }
@@ -73,19 +73,19 @@ public class BodegaDAO {
         rtdo = 0;
         try{
             con = Fachada.getConnection();
-            String sql = "UPDATE Bodega " +
-                         "SET NombreProducto_Bod = ?, Precio_Bod = ?, "
+            String sql = "UPDATE bodega " +
+                         "SET idproducto_bod = ?, nombreproducto_bod = ?, "
                     + "cantidad = ? "
-                    +    "WHERE idProducto_Bod=?";
+                    +    "WHERE id=?";
             pstm = con.prepareStatement(sql);            
-            pstm.setInt(1, bod.getIdProducto_Bod());
-            pstm.setString(2, bod.getNombreProdc());
-            pstm.setDouble(3,bod.getPrecio());
-            pstm.setInt(4, bod.getCantidadProduc());
+            pstm.setInt(1, bod.getIdproducto_bod());
+            pstm.setString(2, bod.getNombreproducto_bod());
+            pstm.setDouble(3,bod.getCantidad());
+            pstm.setInt(4, bod.getId());
             rtdo = pstm.executeUpdate();  
         }
         catch(SQLException ex){
-            JOptionPane.showMessageDialog(null,"idProducto_Bod : " + 
+            JOptionPane.showMessageDialog(null,"id : " + 
                         ex.getErrorCode() + "\nError :" + ex.getMessage());
         }
         finally{
@@ -93,7 +93,7 @@ public class BodegaDAO {
                 if(pstm!=null) pstm.close();                
             }
             catch(SQLException ex){
-                JOptionPane.showMessageDialog(null,"idProducto_Bod : " + 
+                JOptionPane.showMessageDialog(null,"id : " + 
                         ex.getErrorCode() + "\nError :" + ex.getMessage());
             }
         }
@@ -112,14 +112,14 @@ public class BodegaDAO {
         rtdo = 0;
         try{
             con = Fachada.getConnection();
-            String sql = "DELETE FROM Bodega WHERE idProducto_Bod = ? ";
+            String sql = "DELETE FROM bodega WHERE id = ? ";
             pstm = con.prepareStatement(sql);
             pstm.setString(1, id);
             rtdo = pstm.executeUpdate(); 
             return rtdo;
         }
         catch(SQLException ex){
-            JOptionPane.showMessageDialog(null,"idProducto_Bod : " + 
+            JOptionPane.showMessageDialog(null,"id : " + 
                         ex.getErrorCode() + "\nError :" + ex.getMessage());
         } 
         finally{
@@ -127,7 +127,7 @@ public class BodegaDAO {
                 if(pstm!=null) pstm.close();                
             }
             catch(SQLException ex){
-                JOptionPane.showMessageDialog(null,"idProducto_Bod : " + 
+                JOptionPane.showMessageDialog(null,"id : " + 
                         ex.getErrorCode() + "\nError :" + ex.getMessage());
             }
         }
@@ -148,10 +148,10 @@ public class BodegaDAO {
             con = Fachada.getConnection();
             String sql="";
             if(id.equalsIgnoreCase("0")){
-                sql = "SELECT * FROM Bodega ORDER BY idProducto_Bod";            
+                sql = "SELECT * FROM bodega ORDER BY id";            
             }else{
-                sql = "SELECT * FROM Bodega where idProducto_Bod = ? "
-                    + "ORDER BY idProducto_Bod";      
+                sql = "SELECT * FROM bodega where id = ? "
+                    + "ORDER BY id";      
             }                        
             pstm = con.prepareStatement(sql);
             
@@ -164,15 +164,15 @@ public class BodegaDAO {
             Bodega bodega = null;
             while(rs.next()){
                 bodega = new Bodega();
-                bodega.setIdProducto_Bod(rs.getInt("idProducto_Bod"));
-                bodega.setNombreProdc(rs.getString("NombreProducto_Bod"));
-                bodega.setPrecio(rs.getDouble("Precio_Bod"));
-                bodega.setCantidadProduc(rs.getInt("cantidad")); 
+                bodega.setIdproducto_bod(rs.getInt("id"));
+                bodega.setNombreproducto_bod(rs.getString("nombreproducto_bod"));
+                bodega.setCantidad(rs.getInt("cantidad"));
+                bodega.setId(rs.getInt("id")); 
                 listado.add(bodega);
             }
         }
         catch(SQLException ex){
-            JOptionPane.showMessageDialog(null,"idProducto_Bod : " + 
+            JOptionPane.showMessageDialog(null,"id : " + 
                         ex.getErrorCode() + "\nError :" + ex.getMessage());
         }
         finally{
@@ -181,7 +181,7 @@ public class BodegaDAO {
                 if(pstm!=null) pstm.close();                
             }
             catch(SQLException ex){
-                JOptionPane.showMessageDialog(null,"idProducto_Bod : " + 
+                JOptionPane.showMessageDialog(null,"id : " + 
                         ex.getErrorCode() + "\nError :" + ex.getMessage());
             }
         }
