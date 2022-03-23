@@ -46,14 +46,6 @@ public class Vendedor extends Usuario {
         this.numeroVenta = numeroVenta;
     }
     
-    public void totalVenta(){
     
-    
-    }
-    
-   public void comision(){
-   
-   
-   }
     
 }
