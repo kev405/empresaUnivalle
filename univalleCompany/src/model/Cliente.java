@@ -24,7 +24,6 @@ public class Cliente extends Usuario{
   
 
     public Cliente() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public int getEdad() {
@@ -50,6 +49,7 @@ public class Cliente extends Usuario{
     public void setTipoPago(String tipoPago) {
         this.tipoPago = tipoPago;
     }
+
     
     
     
