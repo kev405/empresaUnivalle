@@ -37,10 +37,21 @@ public class Vista extends javax.swing.JFrame   {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
         panelPrincipal = new javax.swing.JPanel();
         jToolBar2 = new javax.swing.JToolBar();
-        btnInicio = new javax.swing.JButton();
         btnChat = new javax.swing.JButton();
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu3 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+
+        jMenu1.setText("File");
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Edit");
+        jMenuBar1.add(jMenu2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -48,17 +59,6 @@ public class Vista extends javax.swing.JFrame   {
         getContentPane().add(panelPrincipal, java.awt.BorderLayout.CENTER);
 
         jToolBar2.setRollover(true);
-
-        btnInicio.setText("Inicio");
-        btnInicio.setFocusable(false);
-        btnInicio.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnInicio.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnInicio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnInicioActionPerformed(evt);
-            }
-        });
-        jToolBar2.add(btnInicio);
 
         btnChat.setText("chat");
         btnChat.setFocusable(false);
@@ -73,6 +73,20 @@ public class Vista extends javax.swing.JFrame   {
 
         getContentPane().add(jToolBar2, java.awt.BorderLayout.PAGE_START);
 
+        jMenu3.setText("Inicio");
+
+        jMenuItem1.setText("Cliente");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem1);
+
+        jMenuBar2.add(jMenu3);
+
+        setJMenuBar(jMenuBar2);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -80,9 +94,8 @@ public class Vista extends javax.swing.JFrame   {
     
     }//GEN-LAST:event_btnChatActionPerformed
 
-    private void btnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioActionPerformed
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
-
         ClienteIG clienteView = new ClienteIG();
         ClientesDAO clienteModel = new ClientesDAO();
 
@@ -100,7 +113,7 @@ public class Vista extends javax.swing.JFrame   {
             clienteView.setLocation(x,y);
             clienteView.setVisible(true);
         }
-    }//GEN-LAST:event_btnInicioActionPerformed
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
      
         
@@ -146,7 +159,12 @@ public class Vista extends javax.swing.JFrame   {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnChat;
-    private javax.swing.JButton btnInicio;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuBar jMenuBar2;
+    public javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JToolBar jToolBar2;
     private javax.swing.JPanel panelPrincipal;
     // End of variables declaration//GEN-END:variables
