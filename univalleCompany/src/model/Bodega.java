@@ -10,57 +10,54 @@ package model;
  */
 public class Bodega {
     
-    private int idProducto_Bod;
-    private String nombreProdc;
-    private double precio;
-    private int cantidadProduc;
+    private int idproducto_bod;
+    private String nombreproducto_bod;
+    private int cantidad;
+    private int id;
+
+    public Bodega(int idproducto_bod, String nombreproducto_bod, int cantidad, int id) {
+        this.idproducto_bod = idproducto_bod;
+        this.nombreproducto_bod = nombreproducto_bod;
+        this.cantidad = cantidad;
+        this.id = id;
+    }
 
     public Bodega() {
     }
-
-    public Bodega(int idProducto_Bod, String nombreProdc, double precio, int cantidadProduc) {
-        this.idProducto_Bod = idProducto_Bod;
-        this.nombreProdc = nombreProdc;
-        this.precio = precio;
-        this.cantidadProduc = cantidadProduc;
-    }
-
-    public int getIdProducto_Bod() {
-        return idProducto_Bod;
-    }
-
-    public void setIdProducto_Bod(int idProducto_Bod) {
-        this.idProducto_Bod = idProducto_Bod;
-    }
-
- 
-
-    public String getNombreProdc() {
-        return nombreProdc;
-    }
-
-    public void setNombreProdc(String nombreProdc) {
-        this.nombreProdc = nombreProdc;
-    }
-
-    public double getPrecio() {
-        return precio;
-    }
-
-    public void setPrecio(double precio) {
-        this.precio = precio;
-    }
-
-    public int getCantidadProduc() {
-        return cantidadProduc;
-    }
-
-    public void setCantidadProduc(int cantidadProduc) {
-        this.cantidadProduc = cantidadProduc;
-    }
     
-    public void valorTotalProdcutos(){
 
-}
+    public int getIdproducto_bod() {
+        return idproducto_bod;
+    }
+
+    public void setIdproducto_bod(int idproducto_bod) {
+        this.idproducto_bod = idproducto_bod;
+    }
+
+    public String getNombreproducto_bod() {
+        return nombreproducto_bod;
+    }
+
+    public void setNombreproducto_bod(String nombreproducto_bod) {
+        this.nombreproducto_bod = nombreproducto_bod;
+    }
+
+    public double getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    
     
 }
