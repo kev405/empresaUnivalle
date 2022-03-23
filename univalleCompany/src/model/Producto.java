@@ -12,22 +12,19 @@ public class Producto {
     
     private int idProductos;
     private String nombreProd;
-    private double precioUnitario;
-    private String Descripcion;
-    private int cantidadProd;
+    private double precio;
+    private String descripcion;
+    private double porcentaje_comision;
 
-    public Producto(int idProductos, String nombreProd, double precioUnitario, String Descripcion, int cantidadProd) {
+    public Producto(int idProductos, String nombreProd, double precio, String descripcion, double porcentaje_comision) {
         this.idProductos = idProductos;
         this.nombreProd = nombreProd;
-        this.precioUnitario = precioUnitario;
-        this.Descripcion = Descripcion;
-        this.cantidadProd = cantidadProd;
+        this.precio = precio;
+        this.descripcion = descripcion;
+        this.porcentaje_comision = porcentaje_comision;
     }
 
-    public Producto() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
+   
     public int getIdProductos() {
         return idProductos;
     }
@@ -44,34 +41,31 @@ public class Producto {
         this.nombreProd = nombreProd;
     }
 
-    public double getPrecioUnitario() {
-        return precioUnitario;
+    public double getPrecio() {
+        return precio;
     }
 
-    public void setPrecioUnitario(double precioUnitario) {
-        this.precioUnitario = precioUnitario;
+    public void setPrecio(double precio) {
+        this.precio = precio;
     }
 
     public String getDescripcion() {
-        return Descripcion;
+        return descripcion;
     }
 
-    public void setDescripcion(String Descripcion) {
-        this.Descripcion = Descripcion;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
-    public int getCantidadProd() {
-        return cantidadProd;
+    public double getPorcentaje_comision() {
+        return porcentaje_comision;
     }
 
-    public void setCantidadProd(int cantidadProd) {
-        this.cantidadProd = cantidadProd;
+    public void setPorcentaje_comision(double porcentaje_comision) {
+        this.porcentaje_comision = porcentaje_comision;
     }
+
     
-    public void crearProducto(){
-    
-    
-    }
     
     
 }
