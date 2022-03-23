@@ -82,13 +82,13 @@ public class Vista extends javax.swing.JFrame   {
 
     private void btnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioActionPerformed
         // TODO add your handling code here:
-        
+
         ClienteIG clienteView = new ClienteIG();
         ClientesDAO clienteModel = new ClientesDAO();
-        
-        ClienteController clienteController = 
-                new ClienteController(clienteView, clienteModel);
-        
+
+        ClienteController clienteController =
+        new ClienteController(clienteView, clienteModel);
+
         int x = (panelPrincipal.getWidth() / 2) - clienteView.getWidth() /2;
         int y = (panelPrincipal.getHeight() / 2) - clienteView.getHeight() /2;
 
@@ -146,7 +146,7 @@ public class Vista extends javax.swing.JFrame   {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnChat;
-    public javax.swing.JButton btnInicio;
+    private javax.swing.JButton btnInicio;
     private javax.swing.JToolBar jToolBar2;
     private javax.swing.JPanel panelPrincipal;
     // End of variables declaration//GEN-END:variables
