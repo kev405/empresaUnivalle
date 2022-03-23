@@ -4,8 +4,9 @@
  */
 package Vista;
 
-
-
+import javax.swing.JOptionPane;
+import controller.ClienteController;
+import dao.ClientesDAO;
 
 
 
@@ -52,6 +53,11 @@ public class Vista extends javax.swing.JFrame   {
         btnInicio.setFocusable(false);
         btnInicio.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnInicio.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnInicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInicioActionPerformed(evt);
+            }
+        });
         jToolBar2.add(btnInicio);
 
         btnChat.setText("chat");
@@ -74,10 +80,63 @@ public class Vista extends javax.swing.JFrame   {
     
     }//GEN-LAST:event_btnChatActionPerformed
 
+    private void btnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioActionPerformed
+        // TODO add your handling code here:
+        
+        ClienteIG clienteView = new ClienteIG();
+        ClientesDAO clienteModel = new ClientesDAO();
+        
+        ClienteController clienteController = 
+                new ClienteController(clienteView, clienteModel);
+        
+        int x = (panelPrincipal.getWidth() / 2) - clienteView.getWidth() /2;
+        int y = (panelPrincipal.getHeight() / 2) - clienteView.getHeight() /2;
+
+        if (clienteView.isShowing()){
+            clienteView.setLocation(x,y);
+        }
+        else{
+            panelPrincipal.add(clienteView);
+            clienteView.setLocation(x,y);
+            clienteView.setVisible(true);
+        }
+    }//GEN-LAST:event_btnInicioActionPerformed
+
      
         
         
-        
+        public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Metal".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(Vista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(Vista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(Vista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Vista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                new Vista().setVisible(true);
+            }
+        });
+    }
         
     
     
