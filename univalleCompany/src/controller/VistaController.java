@@ -22,7 +22,7 @@ public class VistaController implements ActionListener{
         this.laVista = laVista;
         this.elModeloVista = elModeloVista;
         this.laVista.btnChat.addActionListener(this);
-        this.laVista.btnInicio.addActionListener(this);
+        this.laVista.jMenuItem1.addActionListener(this);
         
     }
     
@@ -35,7 +35,11 @@ public class VistaController implements ActionListener{
             
             elModeloVista.btnChatAction();
         
-    }
+        }
+        else if(evt.equals(this.laVista.jMenuItem1)) {
+            
+            System.out.println("Yaii");
+        }
           
     
     }}
