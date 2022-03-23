@@ -24,6 +24,10 @@ public class Producto {
         this.porcentaje_comision = porcentaje_comision;
     }
 
+    public Producto() {
+    }
+
+   
    
     public int getIdProductos() {
         return idProductos;
