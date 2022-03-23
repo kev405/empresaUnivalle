@@ -38,13 +38,13 @@ public class ProductoDAO {
             pstm = con.prepareStatement(sql);
             pstm.setInt(1, prod.getIdProductos());
             pstm.setString(2, prod.getNombreProd());
-            pstm.setDouble(3,prod.getPrecioUnitario());
+            pstm.setDouble(3,prod.getPrecio());
             pstm.setString(4, prod.getDescripcion());
-            pstm.setInt(5, prod.getCantidadProd());
+            pstm.setDouble(5, prod.getPorcentaje_comision());
             rtdo = pstm.executeUpdate();  
         }
         catch(SQLException ex){
-            JOptionPane.showMessageDialog(null,"idProductos : " + 
+            JOptionPane.showMessageDialog(null,"idproductos : " + 
                         ex.getErrorCode() + "\nError :" + ex.getMessage());
         }
         finally{
@@ -52,7 +52,7 @@ public class ProductoDAO {
                 if(pstm!=null) pstm.close();                
             }
             catch(SQLException ex){
-                JOptionPane.showMessageDialog(null,"idProductos : " + 
+                JOptionPane.showMessageDialog(null,"idproductos : " + 
                         ex.getErrorCode() + "\nError :" + ex.getMessage());
             }
         }
@@ -73,19 +73,19 @@ public class ProductoDAO {
         try{
             con = Fachada.getConnection();
             String sql = "UPDATE producto " +
-                         "SET NombreProducto = ?, Precio = ?, Descripcion = ? "
-                    + " cantidad = ? "
-                    +    "WHERE idProductos=?";
+                         "SET nombreproducto = ?, precio = ?, descripcion = ? "
+                    + " porcentaje_comision = ? "
+                    +    "WHERE idproductos=?";
             pstm = con.prepareStatement(sql);            
             pstm.setInt(1, prod.getIdProductos());
             pstm.setString(2, prod.getNombreProd());
-            pstm.setDouble(3,prod.getPrecioUnitario());
+            pstm.setDouble(3,prod.getPrecio());
             pstm.setString(4, prod.getDescripcion());
-            pstm.setInt(5, prod.getCantidadProd());
+            pstm.setDouble(5, prod.getPorcentaje_comision());
             rtdo = pstm.executeUpdate();  
         }
         catch(SQLException ex){
-            JOptionPane.showMessageDialog(null,"idProductos : " + 
+            JOptionPane.showMessageDialog(null,"idproductos : " + 
                         ex.getErrorCode() + "\nError :" + ex.getMessage());
         }
         finally{
@@ -93,7 +93,7 @@ public class ProductoDAO {
                 if(pstm!=null) pstm.close();                
             }
             catch(SQLException ex){
-                JOptionPane.showMessageDialog(null,"idProductos : " + 
+                JOptionPane.showMessageDialog(null,"idproductos : " + 
                         ex.getErrorCode() + "\nError :" + ex.getMessage());
             }
         }
@@ -113,14 +113,14 @@ public class ProductoDAO {
         rtdo = 0;
         try{
             con = Fachada.getConnection();
-            String sql = "DELETE FROM producto WHERE idProductos = ? ";
+            String sql = "DELETE FROM producto WHERE idproductos = ? ";
             pstm = con.prepareStatement(sql);
             pstm.setString(1, id);
             rtdo = pstm.executeUpdate(); 
             return rtdo;
         }
         catch(SQLException ex){
-            JOptionPane.showMessageDialog(null,"idProductos : " + 
+            JOptionPane.showMessageDialog(null,"idproductos : " + 
                         ex.getErrorCode() + "\nError :" + ex.getMessage());
         } 
         finally{
@@ -128,7 +128,7 @@ public class ProductoDAO {
                 if(pstm!=null) pstm.close();                
             }
             catch(SQLException ex){
-                JOptionPane.showMessageDialog(null,"idProductos : " + 
+                JOptionPane.showMessageDialog(null,"idproductos : " + 
                         ex.getErrorCode() + "\nError :" + ex.getMessage());
             }
         }
@@ -150,10 +150,10 @@ public class ProductoDAO {
             con = Fachada.getConnection();
             String sql="";
             if(id.equalsIgnoreCase("0")){
-                sql = "SELECT * FROM producto ORDER BY idProductos";            
+                sql = "SELECT * FROM producto ORDER BY idproductos";            
             }else{
-                sql = "SELECT * FROM producto where idProductos = ? "
-                    + "ORDER BY idProductos";      
+                sql = "SELECT * FROM producto where idproductos = ? "
+                    + "ORDER BY idproductos";      
             }                        
             pstm = con.prepareStatement(sql);
             
@@ -166,16 +166,16 @@ public class ProductoDAO {
             Producto producto = null;
             while(rs.next()){
                 producto = new Producto();
-                producto.setIdProductos(rs.getInt("idProductos"));
-                producto.setNombreProd(rs.getString("NombreProducto"));
-                producto.setPrecioUnitario(rs.getDouble("Precio"));
-                producto.setDescripcion(rs.getString("Descripcion")); 
-                producto.setCantidadProd(rs.getInt("cantidad")); 
+                producto.setIdProductos(rs.getInt("idproductos"));
+                producto.setNombreProd(rs.getString("nombreproducto"));
+                producto.setPrecio(rs.getDouble("precio"));
+                producto.setDescripcion(rs.getString("descripcion")); 
+                producto.setPorcentaje_comision(rs.getInt("porcentaje_comision")); 
                 listado.add(producto);
             }
         }
         catch(SQLException ex){
-            JOptionPane.showMessageDialog(null,"idProductos : " + 
+            JOptionPane.showMessageDialog(null,"idproductos : " + 
                         ex.getErrorCode() + "\nError :" + ex.getMessage());
         }
         finally{
@@ -184,7 +184,7 @@ public class ProductoDAO {
                 if(pstm!=null) pstm.close();                
             }
             catch(SQLException ex){
-                JOptionPane.showMessageDialog(null,"idProductos : " + 
+                JOptionPane.showMessageDialog(null,"idproductos : " + 
                         ex.getErrorCode() + "\nError :" + ex.getMessage());
             }
         }
