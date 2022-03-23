@@ -11,14 +11,21 @@ package model;
 public class Fabricacion {
         private  int idProducto_Fab;
     private String materiaPrima;
-    private String nombreProductos;
+    private String producto;
+    private int cantidad;
+    private int id;
 
-    public Fabricacion(String nombreInsumos, String materiaPrima, int idProducto_Fab) {
-        this.materiaPrima = nombreInsumos;
-        this.nombreProductos = nombreProductos;
+    public Fabricacion(int idProducto_Fab, String materiaPrima, String producto, int cantidad, int id) {
         this.idProducto_Fab = idProducto_Fab;
+        this.materiaPrima = materiaPrima;
+        this.producto = producto;
+        this.cantidad = cantidad;
+        this.id = id;
     }
+    
+    
 
+    
     public Fabricacion() {
     }
     
@@ -31,13 +38,31 @@ public class Fabricacion {
         this.materiaPrima = materiaPrima;
     }
 
-    public String getNombreProductos() {
-        return nombreProductos;
+    public String getProducto() {
+        return producto;
     }
 
-    public void setNombreProductos(String nombreProductos) {
-        this.nombreProductos = nombreProductos;
+    public void setProducto(String producto) {
+        this.producto = producto;
     }
+
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    
 
     public int getIdProducto_Fab() {
         return idProducto_Fab;
