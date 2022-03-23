@@ -10,29 +10,34 @@ package model;
  */
 public class Vendedor extends Usuario {
     
-    private int cantidadProductos;
+    private int tipo_producto;
     private int numeroVenta;
 
-    public Vendedor(int cantidadProductos, int numeroVenta, String nombre, String direccion, int id) {
+    public Vendedor(int tipo_producto, int numeroVenta, String nombre, String direccion, int id) {
         super(nombre, direccion, id);
-        this.cantidadProductos = cantidadProductos;
+        this.tipo_producto = tipo_producto;
         this.numeroVenta = numeroVenta;
+    }
+
+ 
+   
+
+    public Vendedor() {
     }
 
    
 
-    public Vendedor() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+
+    public int getTipo_producto() {
+        return tipo_producto;
     }
 
-    public int getCantidadProductos() {
-        return cantidadProductos;
+    public void setTipo_producto(int tipo_producto) {
+        this.tipo_producto = tipo_producto;
     }
 
-    public void setCantidadProductos(int cantidadProductos) {
-        this.cantidadProductos = cantidadProductos;
-    }
-
+   
     public int getNumeroVenta() {
         return numeroVenta;
     }
