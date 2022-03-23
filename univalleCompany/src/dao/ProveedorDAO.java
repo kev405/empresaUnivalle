@@ -41,11 +41,11 @@ public class ProveedorDAO {
             pstm.setString(2, prov.getDireccion());
             pstm.setInt(3,prov.getId());
             pstm.setString(4, prov.getNombreInsumo());
-            pstm.setInt(5, prov.getCantidadInsumo());
+            pstm.setInt(5, prov.getNumero_venta());
             rtdo = pstm.executeUpdate();  
         }
         catch(SQLException ex){
-            JOptionPane.showMessageDialog(null,"idProveedor : " + 
+            JOptionPane.showMessageDialog(null,"idproveedor : " + 
                         ex.getErrorCode() + "\nError :" + ex.getMessage());
         }
         finally{
@@ -53,7 +53,7 @@ public class ProveedorDAO {
                 if(pstm!=null) pstm.close();                
             }
             catch(SQLException ex){
-                JOptionPane.showMessageDialog(null,"idProveedor : " + 
+                JOptionPane.showMessageDialog(null,"idproveedor : " + 
                         ex.getErrorCode() + "\nError :" + ex.getMessage());
             }
         }
@@ -75,18 +75,18 @@ public class ProveedorDAO {
             con = Fachada.getConnection();
             String sql = "UPDATE proveedor " +
                          "SET nombre = ?, direccion = ?,"
-                    + " nombre_Insumo = ?, cantidad_Insumo = ? "
-                    +    "WHERE idProveedor=?";
+                    + " nombre_Insumo = ?, numero_venta = ? "
+                    +    "WHERE idproveedor=?";
             pstm = con.prepareStatement(sql);            
             pstm.setString(1, prov.getNombre());
             pstm.setString(2, prov.getDireccion());
             pstm.setInt(3,prov.getId());
             pstm.setString(4, prov.getNombreInsumo());
-            pstm.setInt(5, prov.getCantidadInsumo());
+            pstm.setInt(5, prov.getNumero_venta());
             rtdo = pstm.executeUpdate();  
         }
         catch(SQLException ex){
-            JOptionPane.showMessageDialog(null,"idProveedor : " + 
+            JOptionPane.showMessageDialog(null,"idproveedor : " + 
                         ex.getErrorCode() + "\nError :" + ex.getMessage());
         }
         finally{
@@ -94,7 +94,7 @@ public class ProveedorDAO {
                 if(pstm!=null) pstm.close();                
             }
             catch(SQLException ex){
-                JOptionPane.showMessageDialog(null,"idProveedor : " + 
+                JOptionPane.showMessageDialog(null,"idproveedor : " + 
                         ex.getErrorCode() + "\nError :" + ex.getMessage());
             }
         }
@@ -113,14 +113,14 @@ public class ProveedorDAO {
         rtdo = 0;
         try{
             con = Fachada.getConnection();
-            String sql = "DELETE FROM proveedor WHERE idProveedor = ? ";
+            String sql = "DELETE FROM proveedor WHERE idproveedor = ? ";
             pstm = con.prepareStatement(sql);
             pstm.setString(1, id);
             rtdo = pstm.executeUpdate(); 
             return rtdo;
         }
         catch(SQLException ex){
-            JOptionPane.showMessageDialog(null,"idProveedor : " + 
+            JOptionPane.showMessageDialog(null,"idproveedor : " + 
                         ex.getErrorCode() + "\nError :" + ex.getMessage());
         } 
         finally{
@@ -128,7 +128,7 @@ public class ProveedorDAO {
                 if(pstm!=null) pstm.close();                
             }
             catch(SQLException ex){
-                JOptionPane.showMessageDialog(null,"idProveedor : " + 
+                JOptionPane.showMessageDialog(null,"idproveedor : " + 
                         ex.getErrorCode() + "\nError :" + ex.getMessage());
             }
         }
@@ -149,10 +149,10 @@ public class ProveedorDAO {
             con = Fachada.getConnection();
             String sql="";
             if(id.equalsIgnoreCase("0")){
-                sql = "SELECT * FROM proveedor ORDER BY idProveedor";            
+                sql = "SELECT * FROM proveedor ORDER BY idproveedor";            
             }else{
-                sql = "SELECT * FROM proveedor where idProveedor = ? "
-                    + "ORDER BY idProveedor";      
+                sql = "SELECT * FROM proveedor where idproveedor = ? "
+                    + "ORDER BY idproveedor";      
             }                        
             pstm = con.prepareStatement(sql);
             
@@ -167,14 +167,14 @@ public class ProveedorDAO {
                 proveedor = new Proveedor();
                 proveedor.setNombre(rs.getString("Nombre"));
                 proveedor.setDireccion(rs.getString("Direccion"));
-                proveedor.setId(rs.getInt("idProveedor"));
+                proveedor.setId(rs.getInt("idproveedor"));
                 proveedor.setNombreInsumo(rs.getString("nombre_Insumo"));
-                proveedor.setCantidadInsumo(rs.getInt("cantidad_Insumo"));
+                proveedor.setNumero_venta(rs.getInt("numero_venta"));
                 listado.add(proveedor);
             }
         }
         catch(SQLException ex){
-            JOptionPane.showMessageDialog(null,"idProveedor : " + 
+            JOptionPane.showMessageDialog(null,"idproveedor : " + 
                         ex.getErrorCode() + "\nError :" + ex.getMessage());
         }
         finally{
@@ -183,7 +183,7 @@ public class ProveedorDAO {
                 if(pstm!=null) pstm.close();                
             }
             catch(SQLException ex){
-                JOptionPane.showMessageDialog(null,"idProveedor : " + 
+                JOptionPane.showMessageDialog(null,"idproveedor : " + 
                         ex.getErrorCode() + "\nError :" + ex.getMessage());
             }
         }
