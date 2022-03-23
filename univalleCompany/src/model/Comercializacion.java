@@ -11,23 +11,26 @@ package model;
 public class Comercializacion {
     
     private int idCliente_Com;
-    private String nombreProductos_Com;
     private double precio_Com;
     private String vendedor;
     private int cantidad_Com;
     private int numeroFactura;
     private String direccionVenta;
+    private int comision_venta;
+    private int id_producto_com;
 
-    public Comercializacion(int idCliente_Com, String nombreProductos_Com, double precio_Com,
-            String vendedor, int cantidad_Com, int numeroFactura, String direccionVenta) {
+    public Comercializacion(int idCliente_Com, double precio_Com, String vendedor, int cantidad_Com, int numeroFactura, String direccionVenta, int comision_venta, int id_producto_com) {
         this.idCliente_Com = idCliente_Com;
-        this.nombreProductos_Com = nombreProductos_Com;
         this.precio_Com = precio_Com;
         this.vendedor = vendedor;
         this.cantidad_Com = cantidad_Com;
         this.numeroFactura = numeroFactura;
         this.direccionVenta = direccionVenta;
+        this.comision_venta = comision_venta;
+        this.id_producto_com = id_producto_com;
     }
+
+    
 
     public Comercializacion() {
     }
@@ -42,13 +45,23 @@ public class Comercializacion {
         this.idCliente_Com = idCliente_Com;
     }
 
-    public String getNombreProductos_Com() {
-        return nombreProductos_Com;
+    public int getComision_venta() {
+        return comision_venta;
     }
 
-    public void setNombreProductos_Com(String nombreProductos_Com) {
-        this.nombreProductos_Com = nombreProductos_Com;
+    public void setComision_venta(int comision_venta) {
+        this.comision_venta = comision_venta;
     }
+
+    public int getId_producto_com() {
+        return id_producto_com;
+    }
+
+    public void setId_producto_com(int id_producto_com) {
+        this.id_producto_com = id_producto_com;
+    }
+
+   
 
     public double getPrecio_Com() {
         return precio_Com;
@@ -70,9 +83,11 @@ public class Comercializacion {
         return cantidad_Com;
     }
 
-    public void setCantidad_Com(int cantidad_Comd) {
+    public void setCantidad_Com(int cantidad_Com) {
         this.cantidad_Com = cantidad_Com;
     }
+
+    
 
     public int getNumeroFactura() {
         return numeroFactura;
