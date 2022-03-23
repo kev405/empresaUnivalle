@@ -39,12 +39,12 @@ public class VendedorDAO {
             pstm.setString(1, vend.getNombre());
             pstm.setString(2, vend.getDireccion());
             pstm.setInt(3,vend.getId());
-            pstm.setInt(4, vend.getCantidadProductos());
+            pstm.setInt(4, vend.getTipo_producto());
             pstm.setInt(5, vend.getNumeroVenta());
             rtdo = pstm.executeUpdate();  
         }
         catch(SQLException ex){
-            JOptionPane.showMessageDialog(null,"idVendedor : " + 
+            JOptionPane.showMessageDialog(null,"idvendedor : " + 
                         ex.getErrorCode() + "\nError :" + ex.getMessage());
         }
         finally{
@@ -52,7 +52,7 @@ public class VendedorDAO {
                 if(pstm!=null) pstm.close();                
             }
             catch(SQLException ex){
-                JOptionPane.showMessageDialog(null,"idVendedor : " + 
+                JOptionPane.showMessageDialog(null,"idvendedor : " + 
                         ex.getErrorCode() + "\nError :" + ex.getMessage());
             }
         }
@@ -75,17 +75,17 @@ public class VendedorDAO {
             String sql = "UPDATE vendedor " +
                          "SET nombre = ?, direccion = ?,"
                     + " cantidad_Productos = ?, numero_Venta = ? "
-                    +    "WHERE idVendedor=?";
+                    +    "WHERE idvendedor=?";
             pstm = con.prepareStatement(sql);            
             pstm.setString(1, vend.getNombre());
             pstm.setString(2, vend.getDireccion());
             pstm.setInt(3,vend.getId());
-            pstm.setInt(4, vend.getCantidadProductos());
+            pstm.setInt(4, vend.getTipo_producto());
             pstm.setInt(5, vend.getNumeroVenta());
             rtdo = pstm.executeUpdate();  
         }
         catch(SQLException ex){
-            JOptionPane.showMessageDialog(null,"idVendedor : " + 
+            JOptionPane.showMessageDialog(null,"idvendedor : " + 
                         ex.getErrorCode() + "\nError :" + ex.getMessage());
         }
         finally{
@@ -93,7 +93,7 @@ public class VendedorDAO {
                 if(pstm!=null) pstm.close();                
             }
             catch(SQLException ex){
-                JOptionPane.showMessageDialog(null,"idVendedor : " + 
+                JOptionPane.showMessageDialog(null,"idvendedor : " + 
                         ex.getErrorCode() + "\nError :" + ex.getMessage());
             }
         }
@@ -113,14 +113,14 @@ public class VendedorDAO {
         rtdo = 0;
         try{
             con = Fachada.getConnection();
-            String sql = "DELETE FROM vendedor WHERE idVendedor = ? ";
+            String sql = "DELETE FROM vendedor WHERE idvendedor = ? ";
             pstm = con.prepareStatement(sql);
             pstm.setString(1, id);
             rtdo = pstm.executeUpdate(); 
             return rtdo;
         }
         catch(SQLException ex){
-            JOptionPane.showMessageDialog(null,"idVendedor : " + 
+            JOptionPane.showMessageDialog(null,"idvendedor : " + 
                         ex.getErrorCode() + "\nError :" + ex.getMessage());
         } 
         finally{
@@ -128,7 +128,7 @@ public class VendedorDAO {
                 if(pstm!=null) pstm.close();                
             }
             catch(SQLException ex){
-                JOptionPane.showMessageDialog(null,"idVendedor : " + 
+                JOptionPane.showMessageDialog(null,"idvendedor : " + 
                         ex.getErrorCode() + "\nError :" + ex.getMessage());
             }
         }
@@ -149,10 +149,10 @@ public class VendedorDAO {
             con = Fachada.getConnection();
             String sql="";
             if(id.equalsIgnoreCase("0")){
-                sql = "SELECT * FROM vendedor ORDER BY idVendedor";            
+                sql = "SELECT * FROM vendedor ORDER BY idvendedor";            
             }else{
-                sql = "SELECT * FROM vendedor where idVendedor = ? "
-                    + "ORDER BY idVendedor";      
+                sql = "SELECT * FROM vendedor where idvendedor = ? "
+                    + "ORDER BY idvendedor";      
             }                        
             pstm = con.prepareStatement(sql);
             
@@ -167,14 +167,14 @@ public class VendedorDAO {
                 vendedor = new Vendedor();
                 vendedor.setNombre(rs.getString("Nombre"));
                 vendedor.setDireccion(rs.getString("Direccion"));
-                vendedor.setId(rs.getInt("idVendedor"));
-                vendedor.setCantidadProductos(rs.getInt("cantidad_Productos"));
+                vendedor.setId(rs.getInt("idvendedor"));
+                vendedor.setTipo_producto(rs.getInt("tipo_producto"));
                 vendedor.setNumeroVenta(rs.getInt("numero_Venta"));
                 listado.add(vendedor);
             }
         }
         catch(SQLException ex){
-            JOptionPane.showMessageDialog(null,"idVendedor : " + 
+            JOptionPane.showMessageDialog(null,"idvendedor : " + 
                         ex.getErrorCode() + "\nError :" + ex.getMessage());
         }
         finally{
@@ -183,7 +183,7 @@ public class VendedorDAO {
                 if(pstm!=null) pstm.close();                
             }
             catch(SQLException ex){
-                JOptionPane.showMessageDialog(null,"idVendedor : " + 
+                JOptionPane.showMessageDialog(null,"idvendedor : " + 
                         ex.getErrorCode() + "\nError :" + ex.getMessage());
             }
         }
