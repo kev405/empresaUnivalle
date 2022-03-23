@@ -11,19 +11,23 @@ package model;
 public class Proveedor extends Usuario {
     
     private String nombreInsumo;
-    private int cantidadInsumo;
+    private int numero_venta;
 
-    public Proveedor(String nombreInsumo, int cantidadInsumo, String nombre, String direccion, int id) {
+    public Proveedor(String nombreInsumo, int numero_venta, String nombre, String direccion, int id) {
         super(nombre, direccion, id);
         this.nombreInsumo = nombreInsumo;
-        this.cantidadInsumo = cantidadInsumo;
+        this.numero_venta = numero_venta;
     }
 
-   
+    public Proveedor(String nombreInsumo, int numero_venta) {
+        this.nombreInsumo = nombreInsumo;
+        this.numero_venta = numero_venta;
+    }
 
     public Proveedor() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+
 
     public String getNombreInsumo() {
         return nombreInsumo;
@@ -33,13 +37,15 @@ public class Proveedor extends Usuario {
         this.nombreInsumo = nombreInsumo;
     }
 
-    public int getCantidadInsumo() {
-        return cantidadInsumo;
+    public int getNumero_venta() {
+        return numero_venta;
     }
 
-    public void setCantidadInsumo(int cantidadInsumo) {
-        this.cantidadInsumo = cantidadInsumo;
+    public void setNumero_venta(int numero_venta) {
+        this.numero_venta = numero_venta;
     }
+
+   
     
     
     
