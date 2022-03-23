@@ -15,17 +15,23 @@ import model.ModeloChatServidor;
 
 public class ProcesoChatServidor extends Thread {
     
+    
+    
+  
+    
     public ProcesoChatServidor(String msg){
      super(msg); 
     }
     
     public void run(){
+     
+ 
+          FrameChatServidor elFrameServidor = new FrameChatServidor();
+          ModeloChatServidor elModeloChatServer = new ModeloChatServidor(elFrameServidor.msg_area, elFrameServidor.msg_text);
+          ChatServidorController controladorServer = new ChatServidorController(elFrameServidor,elModeloChatServer);
+          elFrameServidor.setVisible(true);
+          controladorServer.iniciar();
         
-        FrameChatServidor elFrameServidor = new FrameChatServidor();
-        ModeloChatServidor elModeloChatServer = new ModeloChatServidor(elFrameServidor.msg_area, elFrameServidor.msg_text);
-        ChatServidorController controladorServer = new ChatServidorController(elFrameServidor,elModeloChatServer);
-        elFrameServidor.setVisible(true);
-        controladorServer.iniciar();
 
         
 

@@ -5,8 +5,11 @@
 package model;
 
 
+import java.io.BufferedWriter;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileWriter;
 import java.net.InetAddress;
 import java.net.Socket;
 
@@ -83,11 +86,41 @@ public class ModeloChatCliente {
           msgout = msg_text.getText().trim();
           dout.writeUTF(msgout);
           System.out.println("se Envio");
+          msg_area.setText(msg_area.getText().trim()+"\nCliente: " + msgout );
+          this.almacenarChat();
+          msg_text.setText("");
           
           
         }catch(Exception i){
             System.out.print("estoy en el boton cliente");
         }
-    }     
+    }
+    
+    
+    public void almacenarChat(){
+        
+        
+          try {
+            String ruta = "registro.txt";
+            String contenido = "Cliente: " + msg_text.getText();
+            File archivo = new File(ruta);
+            
+            if (!archivo.exists()) {
+                archivo.createNewFile();
+            }
+        
+            FileWriter escribirArchivo = new FileWriter(archivo,true);
+            BufferedWriter buffer = new BufferedWriter(escribirArchivo);
+            buffer.write(contenido);
+            buffer.newLine();
+            buffer.close();
+            
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
     
 }
+

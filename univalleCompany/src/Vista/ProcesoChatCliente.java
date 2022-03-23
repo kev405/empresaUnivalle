@@ -14,6 +14,7 @@ import model.ModeloChatCliente;
  */
 public class ProcesoChatCliente extends Thread {
     
+  
     public ProcesoChatCliente(String msg){
      super(msg); 
     }
@@ -33,4 +34,7 @@ public class ProcesoChatCliente extends Thread {
     }
     
     
+    
+    
 }
+ 

@@ -23,16 +23,21 @@ public class ChatServidorController implements ActionListener{
         this.elFrameServidor = elFrameServidor;
         this.elModeloServidor = elModeloServidor;
         this.elFrameServidor.msg_send.addActionListener(this);
+     
+        
         
     }
     
     
     public void actionPerformed(ActionEvent ae) {
         
-       
-        elModeloServidor.msg_sendActionPerformed();
-        
-      
+        Object evt = ae.getSource();
+
+        if (evt.equals(this.elFrameServidor.msg_send)) {
+            elModeloServidor.msg_sendActionPerformed();
+
+        }
+
     }
     
     public void iniciar(){
