@@ -4,9 +4,7 @@
  */
 package servicios;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ResourceBundle;
 import javax.swing.JOptionPane;
 
@@ -37,7 +35,7 @@ public class Fachada {
                          
         }
         catch(ClassNotFoundException | SQLException ex){
-            JOptionPane.showMessageDialog(null,"Error : " + 
+            JOptionPane.showMessageDialog(null,"Error  : " + 
                     ex.getMessage());
         }
         return con;
@@ -58,5 +56,4 @@ public class Fachada {
             }
         }
     }
-    
 }
