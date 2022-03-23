@@ -4,6 +4,7 @@
  */
 package controller;
 
+import Vista.ClienteIG;
 import Vista.Vista;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -39,6 +40,9 @@ public class VistaController implements ActionListener{
         else if(evt.equals(this.laVista.jMenuItem1)) {
             
             System.out.println("Yaii");
+            
+            ClienteIG ventanaCliente = new ClienteIG();
+            ventanaCliente.setVisible(true);
         }
           
     
